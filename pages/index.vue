@@ -1,9 +1,13 @@
 <template lang="pug">
 .container.mx-auto.p-20
-  label name
-    input.block.m-10.p-2(type='text' v-model='form.name')
-  label age
-    input.block.m-10.p-2(type='text' v-model='form.age')
+  .flex
+    left
+      label name
+        input.block.m-10.p-2(type='text' v-model='name')
+      label age
+        input.block.m-10.p-2(type='text' v-model='age')
+    right
+      pre.text-xs {{ $v }}
 
 </template>
 
@@ -14,7 +18,8 @@ import { required, between } from 'vuelidate/lib/validators'
 export default Vue.extend({
   data() {
     return {
-      form: { name: '', age: '' },
+      name: '',
+      age: '',
     }
   },
   validations() {
